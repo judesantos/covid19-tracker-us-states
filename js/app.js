@@ -403,14 +403,15 @@ let plotStateDailyChart = async (stateId) => {
             margin: '8% 17% 5% 10%'
         },
         scaleX: {
-            //values: stateData.startDate + ':' + stateData.endDate + ':1 ',
-            labels: stateData.dateMarkers
+            values: stateData.dateMarkers
         },
         scaleY: {
             lineColor: '#333'
         },
         tooltip: {
-            text: '%t: %v outbreaks in %k'
+            text: '%v %t in %k',
+            thousandsSeparator: ','
+
         },
         series: chartData
     };
@@ -569,14 +570,14 @@ getUSDaily().then(usDaily => {
             margin: '15% 25% 10% 25%'
         },
         scaleX: {
-            //values: dailyUSStartDate + ':' + dailyUSEndDate + ':1 ',
-            labels: dailyDateMarkers.reverse(),
+            values: dailyDateMarkers.reverse(),
         },
         scaleY: {
             lineColor: '#333'
         },
         tooltip: {
-            text: '%t: %v outbreaks in %k'
+            text: '%v %t in %k',
+            thousandsSeparator: ','
         },
         series: chartData
     };
