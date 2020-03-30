@@ -5,155 +5,15 @@
   <meta charset="utf-8">
   <title>COVID-19 Tracker</title>
   <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-  <script src="./us_states.js"></script>
-  <script src="./us_coords.js"></script>
+  <script src="./js/us_states.js"></script>
+  <script src="./js/us_coords.js"></script>
   <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5e813387957373001998413c&product=sticky-share-buttons"></script>
-
-  <style>
-
-    html, body {
-      height: 100%;
-      font-family: Arial, Helvetica, sans-serif
-    }
-
-    .body-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      height: 100%;
-      width: 100%;
-    }
-
-    .chart-container {
-      width: 100%;
-      margin: 0;
-    }
-
-    .map-container {
-      width: 100%;
-      height: 100%;
-      margin: auto;
-    }
-
-    .line-container {
-      width: 100%;
-      height: 100%;
-    }
-
-    .us-line-container {
-      height: 100%;
-      height: 100%;
-      margin-top: 3%;
-    }
-
-    .right-panel {
-      width: 20%;
-      height: 100%;
-      margin: 1%;
-      -webkit-box-shadow: -4px 5px 13px -4px rgba(0,0,0,0.58);
-      -moz-box-shadow: -4px 5px 13px -4px rgba(0,0,0,0.58);
-      box-shadow: -4px 5px 13px -4px rgba(0,0,0,0.58);
-      border: 0.5px solid #ddd1d1;
-    }
-    
-    .zc-ref {
-      display: none;
-    }
-
-    .news-panel {
-      width: 100%;
-      height: 83%;
-      overflow-y: scroll;
-      scrollbar-width: thin;
-    }
-
-    .news-items {
-      margin: 5%;
-      width: 85%;
-      height: 100%;
-    }
-
-    .news-item {
-      width: 100%;
-      margin: 5% 3%;
-    }
-
-    .news-details {
-      color: unset;
-      text-decoration: none;
-      font-weight: 1.5em;
-    }
-
-    .news-source {
-      font-size: 12px;
-      color: rgb(170, 170, 170);
-      margin-top: 2%;
-    }
-
-    .news-source, .news-details {
-      width: 100%;
-    }
-
-    /**
-      MODAL
-    */
-
-    .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 2; /* Sit on top */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-      border-radius: 12px;
-      background-color: #fefefe;
-      margin: 10% auto; /* 15% from the top and centered */
-      padding: 1% 1% 1% 3%;
-      border: 1px solid #888;
-      width: 60%; /* Could be more or less, depending on screen size */
-    }
-
-    /* The Close Button */
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover, .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    #footer {
-      height: 40px;
-      line-height: 40px;
-      margin: 0px 0px 10px;
-      text-align: center;
-      width: 100%;
-      position: sticky;
-      bottom: 16%;
-    }
-
-    #footer > span {
-      margin: 0 1%;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
 <script>
- 
+
 </script>
 ​
 <body class="zc-body">
@@ -168,7 +28,7 @@
     </div>
 
   </div>
-  
+
   <div class="body-container">
     <div class="chart-container">
       <div id="mapChart" class="map-container"></div>
@@ -190,7 +50,7 @@
 
   </div>
 
- 
+
 </body>
 
 <script>
@@ -219,7 +79,7 @@
     10: '#9a202b'
     */
   };
-  
+
   btnClose.onclick = function() {
     myModal.style.display = "none";
   }
@@ -228,7 +88,7 @@
     if (event.target == myModal) {
       myModal.style.display = "none";
     }
-  } 
+  }
 
   // MISC
   // ------------------------------------------
@@ -243,7 +103,7 @@
     }
     return result;
   }
-  
+
   formatDate = (date) => {
     const locale = 'en-US';
     const options = { month: 'long', day: 'numeric', year: 'numeric', second: 'numeric', minute: 'numeric', hour: 'numeric'};
@@ -262,7 +122,7 @@
     if (jsonData.length) {
       let newsItems = '';
       for (item of jsonData) {
-        newsItems += 
+        newsItems +=
           '<div class="news-item">' +
             '<a class="news-details" target="_blank"' +
               'href="' + item.url + '">' + item.title + '</a>' +
@@ -358,10 +218,10 @@
           */
           // setup tooltip
           dataItems[_state.state] = state(
-            '<u>' + US_states[_state.state] + '</u><br><br>' + 
-            'Positive: <b>' + formatNumber(_state.positive) + '</b><br>' + 
-            'Negative: <b>' + formatNumber(_state.negative) + '</b><br>' + 
-            'Deaths: <b>' + formatNumber(_state.death) + '</b><br>' + 
+            '<u>' + US_states[_state.state] + '</u><br><br>' +
+            'Positive: <b>' + formatNumber(_state.positive) + '</b><br>' +
+            'Negative: <b>' + formatNumber(_state.negative) + '</b><br>' +
+            'Deaths: <b>' + formatNumber(_state.death) + '</b><br>' +
             'Hospitalized: <b>' + formatNumber(_state.hospitalized) + '</b><br>' +
             'Tested: <b>' + formatNumber(_state.totalTestResults) + '</b>',
             //HeatMap[size]
@@ -411,7 +271,7 @@
 
     // CHART CONFIG
     // -----------------------------
-  
+
     let chartConfig = {
       graphset: [{
         backgroundColor: 'white', //'#9DDCF9',
@@ -432,7 +292,7 @@
               items: covidData.dataItems
             },
           }
-        }] 
+        }]
       }]
     };
 
@@ -641,7 +501,7 @@
     response = await fetch('https://covidtracking.com/api/us/daily');
     let jsonData = await response.json();
 
-    if (jsonData.length) 
+    if (jsonData.length)
     {
       let USDaily = {
         positive: [],
