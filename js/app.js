@@ -115,6 +115,7 @@ let state = (text, bgColor = null) => {
     return stateObj;
 }
 
+
 let getCurrentDataPerState = async () => {
 
     let dataItems = {};
@@ -122,7 +123,6 @@ let getCurrentDataPerState = async () => {
 
     response = await fetch('https://covidtracking.com/api/states');
     const jsonData = await response.json();
-    console.log(jsonData);
     // process data
     if (jsonData.length) {
         // sort state by the highest positive occurrence
@@ -172,7 +172,6 @@ let getCurrentDataPerState = async () => {
                 );
             }
         };
-        console.log(heatMap);
     }
 
     return {
@@ -222,7 +221,8 @@ getCurrentDataPerState().then(covidData => {
             title: {
                 text: 'COVID-19 Tracker - Daily',
                 backgroundColor: 'none',
-                fontColor: '#000'
+                fontColor: '#000',
+                y: '7%'
             },
             shapes: [{
                 type: 'zingchart.maps',
@@ -232,9 +232,16 @@ getCurrentDataPerState().then(covidData => {
                     style: {
                         hoverState: {
                             visible: false // highlight state on hover
+                        }, 
+                        controls: {
+                            placement: 'tr'
                         },
                         items: covidData.dataItems
                     },
+                    width: '80%',
+                    height: '80%',
+                    x: '17%',
+                    y: '12%'
                 }
             }]
         }]
@@ -257,6 +264,7 @@ getCurrentDataPerState().then(covidData => {
 
 });
 
+// popup dialog for state chart
 zingchart.bind('mapChart', 'shape_click', (e) => {
     let state = e.shapeid;
     if (state) {
