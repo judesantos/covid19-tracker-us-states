@@ -6,9 +6,9 @@ html, body {
 
 .menu {
   display: inline-flex;
-  font-family: 'Roboto', sans-serif;
-  font-weight: lighter;
-  font-size: 14px;
+  font-family: 'Gotu', sans-serif;
+  font-weight: medium;
+  font-size: 1.5em;
 }
 
 .menu li {
@@ -74,7 +74,7 @@ html, body {
     height: 100%;
     margin-top: 3%;
 }
-
+/*
 .right-panel {
     width: 20%;
     height: 100%;
@@ -85,7 +85,7 @@ html, body {
     border: 0.5px solid #ddd1d1;
     font-weight: 80vmin;
 }
-
+*/
 .zc-ref {
     display: none;
 }

@@ -14,12 +14,45 @@
 
 </head>
 
-<script>
-
-</script>
-​
-
 <body class="zc-body">
+
+  <header>
+    <div class="headercontainer">
+      <nav>
+        <ul class="menu">
+          <li><a href="#">About</a></li>
+          <li><a href="./state-testing.html">State Testing</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="./news.html">News</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="body-container">
+    <div class="chart-container">
+      <div id="mapChart" class="map-container"></div>
+      <p id="footer">
+        <span id="positive"></span><span id="negative"></span>
+        <span id="hospitalized"></span><span id="deaths"></span><span id="tested"></span>
+        <br><span>Updated: <span id="lastUpdated"></span></span>
+      </p>
+      <div id="lineUSChart" class="us-line-container"></div>
+    </div>
+
+    <!-- News -->
+    <!-- <div class="right-panel">
+      <center>
+        <h4>Corona (COVID-19) News</h4>
+      </center>
+      <hr style="width:50%;" />
+      <div class="news-panel">
+        <div id="news_items" class="news-items"></div>
+      </div>
+    </div> -->
+
+  </section>
 
   <!-- The Modal -->
   <div id="myModal" class="modal">
@@ -32,40 +65,21 @@
 
   </div>
 
-  <header>
-    <div class="headercontainer">
-      <nav>
-        <ul class="menu">
-          <li><a href="#">About</a></li>
-          <li><a href="./state-testing.html">State Testing</a></li>
-          <li><a href="#">Resources</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-  <div class="body-container">
-    <div class="chart-container">
-      <div id="mapChart" class="map-container"></div>
-      <p id="footer">
-        <span id="positive"></span><span id="negative"></span>
-        <span id="hospitalized"></span><span id="deaths"></span><span id="tested"></span>
-        <br><span>Updated: <span id="lastUpdated"></span></span>
-      </p>
-      <div id="lineUSChart" class="us-line-container"></div>
-    </div>
-    <div class="right-panel">
-      <center>
-        <h4>Corona (COVID-19) News</h4>
-      </center>
-      <hr style="width:50%;" />
-      <div class="news-panel">
-        <div id="news_items" class="news-items"></div>
-      </div>
-    </div>
-  </div>
-
   <script src="./js/app.js"></script>
 
+  <!-- To Do
+  <footer>
+    <h4>&copy; yourtechy.com LLC</h4>
+
+    <div class="icons">
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-linkedin"></i>
+      <i class="fab fa-twitter-square"></i>
+      <i class="fab fa-google-plus-square"></i>
+    </div>
+  </footer>
+  -->
+
 </body>
+
+</html>
