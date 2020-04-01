@@ -164,7 +164,7 @@ html, body {
 }
 
 
-#footer {
+#summary {
     height: 40px;
     line-height: 40px;
     margin: 0px 0px 10px;
@@ -174,7 +174,7 @@ html, body {
     bottom: 6%;
 }
 
-#footer > span {
+#summary > span {
     margin: 0 1%;
 }
 

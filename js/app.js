@@ -173,7 +173,7 @@ getUSCurrentData().then(usData => {
 
 getCurrentDataPerState().then(covidData => {
 
-    // setup footer stats
+    // setup summary stats
     positive.innerHTML = '<span style="color:#D0021B;">Positive</span> <b>' + formatNumber(USData.positive) + '</b>';
     negative.innerHTML = '<span style="color:#4A90E2;">Negative</span> <b>' + formatNumber(USData.negative) + '</b>';
     hospitalized.innerHTML = '<span style="color:#F5A623;">Hospitalized</span> <b>' + formatNumber(USData.hospitalized) + '</b>';
@@ -397,14 +397,14 @@ let plotStateDailyChart = async (stateId) => {
 
     // RENDER CHARTS
     // -----------------------------
-    zingchart.render({
-        id: 'lineChart',
-        data: lineChartConfig,
-        width: '90%',
-        height: '90%'
-    });
+    //zingchart.render({
+    //    id: 'lineChart',
+    //    data: lineChartConfig,
+    //    width: '90%',
+    //    height: '90%'
+    // });
 
-    myModal.style.display = "block";
+    // myModal.style.display = "block";
 
 }
 
