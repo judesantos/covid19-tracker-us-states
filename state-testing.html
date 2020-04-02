@@ -3,12 +3,14 @@
 
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>COVID-19 Tracker</title>
     <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
     <script src="./js/us_states.js"></script>
     <script src="./js/us_coords.js"></script>
-    <script async
+    <!-- <script async
       src="https://platform-api.sharethis.com/js/sharethis.js#property=5e813387957373001998413c&product=sticky-share-buttons"></script>
+    -->
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
   </head>
@@ -27,12 +29,153 @@
       </div>
     </header>
 
+    <section class="search">
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Search for State Testing Data</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+          <a href="#">Alabama</a>
+          <a href="#">Alaska</a>
+          <a href="#">Arizona</a>
+          <a href="#">Arkansas</a>
+          <a href="#">California</a>
+          <a href="#">Colorado</a>
+          <a href="#">Connecticut</a>
+          <a href="#">Delaware</a>
+          <a href="#">Florida</a>
+          <a href="#">Georgia</a>
+          <a href="#">Hawaii</a>
+          <a href="#">Idaho</a>
+          <a href="#">Illinois</a>
+          <a href="#">Indiana</a>
+          <a href="#">Iowa</a>
+          <a href="#">Kansas</a>
+          <a href="#">Kentucky</a>
+          <a href="#">Louisiana</a>
+          <a href="#">Maine</a>
+          <a href="#">Maryland</a>
+          <a href="#">Massachusetts</a>
+          <a href="#">Michigan</a>
+          <a href="#">Minnesota</a>
+          <a href="#">Mississippi</a>
+          <a href="#">Missouri</a>
+          <a href="#">Montana</a>
+          <a href="#">Nebraska</a>
+          <a href="#">Nevada</a>
+          <a href="#">New Hampshire</a>
+          <a href="#">New Jersey</a>
+          <a href="#">New Mexico</a>
+          <a href="#">New York</a>
+          <a href="#">North Carolina</a>
+          <a href="#">North Dakota</a>
+          <a href="#">Ohio</a>
+          <a href="#">Oklahoma</a>
+          <a href="#">Oregon</a>
+          <a href="#">Pennsylvania</a>
+          <a href="#">Rhode Island</a>
+          <a href="#">South Carolina</a>
+          <a href="#">South Dakota</a>
+          <a href="#">Tennessee</a>
+          <a href="#">Texas</a>
+          <a href="#">Utah</a>
+          <a href="#">Vermont</a>
+          <a href="#">Virgina</a>
+          <a href="#">Washington</a>
+          <a href="#">West Virginia</a>
+          <a href="#">Wisconsin</a>
+          <a href="#">Wyoming</a>
+
+        </div>
+</div>
+    </section>
+
     <section class="zc-body">
       <div class="body-container">
         <div id="chart_tests_container">
         </div>
       </div>
     </section>
+
+  <script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+
+    /*
+    const stateName = [
+
+      "Alabama",
+      "Alaska",
+      "Arizona",
+      "Arkansas",
+      "California",
+      "Colorado",
+      "Connecticut",
+      "Delaware",
+      "Florida",
+      "Georgia",
+      "Hawaii",
+      "Idaho",
+      "Illinois",
+      "Indiana",
+      "Iowa",
+      "Kansas",
+      "Kentucky",
+      "Louisiana",
+      "Maine",
+      "Maryland",
+      "Massachusetts",
+      "Michigan",
+      "Minnesota",
+      "Mississippi",
+      "Missouri",
+      "Montana",
+      "Nebraska",
+      "Nevada",
+      "New Hampshire",
+      "New Jersey",
+      "New Mexico",
+      "New York",
+      "North Carolina",
+      "North Dakota",
+      "Ohio",
+      "Oklahoma",
+      "Oregon",
+      "Pennsylvania",
+      "Rhode Island",
+      "South Carolina",
+      "South Dakota",
+      "Tennessee",
+      "Texas",
+      "Utah",
+      "Vermont",
+      "Virginia",
+      "Washington",
+      "West Virginia",
+      "Wisconsin",
+      "Wyoming",
+    ]
+    */
+
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 
   <script src="./js/state-testing.js"></script>
 
