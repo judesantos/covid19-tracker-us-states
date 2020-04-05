@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="zc-html">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COVID-19 Tracker</title>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="./js/us_states.js"></script>
+    <script src="./js/us_coords.js"></script>
+    <!-- <script async
+      src="https://platform-api.sharethis.com/js/sharethis.js#property=5e813387957373001998413c&product=sticky-share-buttons"></script>
+    -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <div class="headercontainer">
+        <nav>
+          <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li>State Testing</li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="./news.html">News</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="zc-body">
+      <div class="body-container">
+        <div id="chart_tests_container">
+        </div>
+      </div>
+    </section>
+
+  <script>
+   
+
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+  <script src="./js/state-testing.js"></script>
+  <script src="./js/common.js"></script>
+
+  </body>
+</html>

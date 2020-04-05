@@ -46,12 +46,59 @@ let getCurrentDataPerState = async () => {
       // sort state by the highest positive occurrence
       jsonData.sort((a, b) => (a.positive < b.positive) ? 1 : -1);
       // store top 20 for rendering in state-testing page
-      return jsonData.slice(0, 16);
+      return jsonData; //.slice(0, 16);
   }
 
   return null;
 };
 
+let plotTable = async () => {
+
+  const statesData = await getCurrentDataPerState();
+
+  let table = '<table><thead>' +
+    '<tr><th>State</th>' +
+    '<th>Positive</th>' +
+    '<th>Negative</th>' +
+    '<th>Pending</th>' + 
+    '<th>Hospitalized</th>' +
+    '<th>ICU</th>' + 
+    '<th>On Ventilator</th>' +
+    '<th>Recovered</th>' +
+    '<th>Deaths</th>' +
+    '<th>Updated</th></tr>' +
+    '</thead><tbody>';
+
+  for (states of statesData) {
+
+    table += '<tr>' + 
+      '<td>' + getValue(states.state) + '</td>' +
+      '<td>' + formatNumber(getValue(states.positive), '') + '</td>' +
+      '<td>' + formatNumber(getValue(states.negative), '') + '</td>' +
+      '<td>' + formatNumber(getValue(states.pending), '') + '</td>' +
+      '<td>' + formatNumber(getValue(states.hospitalizedCumulative), '')+ '</td>' +
+      '<td>' + formatNumber(getValue(states.inIcuCumulative), '') + '</td>' +
+      '<td>' + formatNumber(getValue(states.onVentilatorCumulative), '') + '</td>' +
+      '<td>' + formatNumber(getValue(states.recovered), '') + '</td>' +
+      '<td>' + formatNumber(getValue(states.death), '') + '</td>' +
+      '<td class="td-date">' + formatDate(getValue(states.lastUpdateEt), '') + '</td>' +
+      '</tr>';
+
+  }
+
+  table += '</tbody></table>';
+  chart_tests_container.innerHTML = table;
+
+  console.log(chart_tests_container.innerHTML);
+}
+
+let getValue = (raw) => {
+  return raw ? raw : '';
+}
+
+plotTable()
+
+/*
 getTestDataPerState = async () => {
 
   let chartHtmlContainers = '';
@@ -138,3 +185,4 @@ getTestDataPerState = async () => {
 }
 
 getTestDataPerState();
+*/

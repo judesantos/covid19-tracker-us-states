@@ -34,27 +34,6 @@ window.onclick = function (event) {
     }
 }
 
-// MISC
-// ------------------------------------------
-
-formatNumber = (num) => {
-    if (!num) return 'N/A';
-    let result = 'N/A';
-    try {
-        result = num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-    } catch (err) {
-        console.log('formatNumber error: ' + err);
-    }
-    return result;
-}
-
-formatDate = (date) => {
-    const locale = 'en-US';
-    const options = { month: 'long', day: 'numeric', year: 'numeric', second: 'numeric', minute: 'numeric', hour: 'numeric' };
-    return new Intl.DateTimeFormat(locale, options).format(new Date(date));
-}
-
-
 // ------------------------------------------
 // MAP CHART
 // ------------------------------------------
@@ -82,7 +61,6 @@ let state = (text, bgColor = null) => {
 
     return stateObj;
 }
-
 
 let getCurrentDataPerState = async () => {
 
